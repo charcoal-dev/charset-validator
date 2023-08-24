@@ -15,7 +15,7 @@ declare(strict_types=1);
 /**
  * Class SanitizerValidatorTests
  */
-class SanitizerValidatorTests extends \PHPUnit\Framework\TestCase
+class SanitizerValidatorTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @return void
