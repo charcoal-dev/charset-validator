@@ -121,7 +121,7 @@ class ASCII
     public static function fromHex(string $hex): string
     {
         if (str_starts_with($hex, "0x")) {
-            $hex = substr($hex, 0, 2); // If any, removes the "0x" prefix
+            $hex = substr($hex, 2); // If any, removes the "0x" prefix
         }
 
         if (!preg_match('/^[a-f0-9]+$/i', $hex)) {
