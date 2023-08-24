@@ -144,6 +144,14 @@ class CharsetsTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals("charcoal  چارکول", \Charcoal\Charsets\UTF8::Filter($str, true, \Charcoal\Charsets\Utf8Range::Arabic));
         $this->assertEquals("چارکول", \Charcoal\Charsets\UTF8::Filter($str, false, \Charcoal\Charsets\Utf8Range::Arabic));
 
+        // Multiple ranges
+        $rangesSet1 = [
+            \Charcoal\Charsets\Utf8Range::Arabic,
+            \Charcoal\Charsets\Utf8Range::Russian
+        ];
+        $this->assertEquals("угольچارکول", \Charcoal\Charsets\UTF8::Filter($str, false, ...$rangesSet1));
+        $this->assertEquals("charcoal уголь چارکول", \Charcoal\Charsets\UTF8::Filter($str, true, ...$rangesSet1));
+
         // Test ASCII::Filter
         // Notice 2 trailing spaces:
         $this->assertEquals("charcoal  ", \Charcoal\Charsets\ASCII::Filter($str));
