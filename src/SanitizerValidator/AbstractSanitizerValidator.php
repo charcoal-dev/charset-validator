@@ -171,7 +171,7 @@ abstract class AbstractSanitizerValidator
      * @return string|null
      * @throws \Charcoal\Charsets\Exception\SanitizerValidatorException
      */
-    public function getNullable(mixed $value, bool $emptyStrIsNull = false): ?string
+    public function getNullable(mixed $value, bool $emptyStrIsNull = true): ?string
     {
         if (is_null($value) || ($emptyStrIsNull && is_string($value) && !$value)) {
             return null;
