@@ -73,6 +73,17 @@ class SanitizerValidatorTest extends \PHPUnit\Framework\TestCase
         $processor->getProcessed("charcoa");
     }
 
+    public function testNullable(): void
+    {
+        $processor = \Charcoal\Charsets\SanitizerValidator::ASCII()
+            ->len(min: 2, max: 8);
+        $this->assertEquals("test", $processor->getNullable("test"));
+        $this->assertNull($processor->getNullable(null));
+        $this->assertNull($processor->getNullable("", true));
+        $this->expectExceptionCode(\Charcoal\Charsets\Exception\SanitizerValidatorError::TYPE_ERROR->value);
+        $processor->getNullable($processor->getProcessed(null));
+    }
+
     /**
      * @return void
      * @throws \Charcoal\Charsets\Exception\SanitizerValidatorException
