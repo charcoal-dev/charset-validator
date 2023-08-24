@@ -33,11 +33,11 @@ class Charsets
 
     /**
      * Checks is input string all comprised of 7-bit ASCII characters
-     * @param $val
+     * @param mixed $val
      * @param bool $printableOnly
      * @return bool
      */
-    public static function isASCII($val, bool $printableOnly = true): bool
+    public static function isASCII(mixed $val, bool $printableOnly = true): bool
     {
         if (!is_string($val)) {
             return false;
@@ -48,20 +48,20 @@ class Charsets
 
     /**
      * Checks if string may have UTF8 characters
-     * @param $val
+     * @param mixed $val
      * @return bool
      */
-    public static function hasUtf8Chars($val): bool
+    public static function hasUtf8Chars(mixed $val): bool
     {
         return is_string($val) && !ASCII::Charset($val);
     }
 
     /**
      * Checks if input is a string and is Hexadecimal encoded
-     * @param $val
+     * @param mixed $val
      * @return bool
      */
-    public static function isBase16($val): bool
+    public static function isBase16(mixed $val): bool
     {
         return is_string($val) && preg_match('/^(0x)?[a-f0-9]+$/i', $val);
     }
